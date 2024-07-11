@@ -1,4 +1,3 @@
-# broker.py
 import zmq
 
 def broker():

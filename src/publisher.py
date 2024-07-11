@@ -1,4 +1,3 @@
-# subscriber_text.py
 import zmq
 
 def subscriber_text():
