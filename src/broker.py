@@ -6,7 +6,7 @@ def broker():
     # Socket para receber mensagens dos publicadores
     frontend = context.socket(zmq.SUB)
     frontend.bind("tcp://*:5555")
-    frontend.setsockopt_string(zmq.SUBSCRIBE, "texto")
+    frontend.setsockopt_string(zmq.SUBSCRIBE, "texto", encoding='utf-8')
 
     # Socket para enviar mensagens aos assinantes
     backend = context.socket(zmq.PUB)
