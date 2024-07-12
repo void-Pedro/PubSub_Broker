@@ -7,6 +7,8 @@ def broker():
     frontend = context.socket(zmq.SUB)
     frontend.bind("tcp://*:5555")
     frontend.setsockopt_string(zmq.SUBSCRIBE, "texto", encoding='utf-8')
+    # frontend.setsockopt_string(zmq.SUBSCRIBE, "audio")
+    #frontend.setsockopt_string(zmq.SUBSCRIBE, "voz")
 
     # Socket para enviar mensagens aos assinantes
     backend = context.socket(zmq.PUB)
