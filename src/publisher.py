@@ -1,6 +1,10 @@
 import zmq
 import pyaudio
 import time
+import sys
+
+CHUNK = 1024
+RATE = 44100
 
 context = zmq.Context()
 socket = context.socket(zmq.PUB)
@@ -14,7 +18,12 @@ def send_text():
     
 def send_audio():
     audio = pyaudio.PyAudio()
-    stream = audio.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=1024)
+    stream = audio.open(format=audio.get_format_from_width(2),
+                channels=1 if sys.platform == 'darwin' else 2,
+                rate=RATE,
+                input=True,
+                output=True,
+                frames_per_buffer=CHUNK)
 
     while True:
         data = stream.read(1024)
