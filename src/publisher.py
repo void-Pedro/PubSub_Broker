@@ -8,8 +8,9 @@ socket.connect("tcp://localhost:5555")
 
 def send_text():
     while True:
-        message = socket.recv_string()
-        print(f"Received text message: {message}")
+        message = "texto This is a text message"
+        socket.send_string(message)
+        time.sleep(1)
     
 def send_audio():
     audio = pyaudio.PyAudio()
