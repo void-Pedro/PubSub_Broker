@@ -22,13 +22,18 @@ def send_audio():
                 channels=1 if sys.platform == 'darwin' else 2,
                 rate=RATE,
                 input=True,
-                output=True,
+                output=False,
                 frames_per_buffer=CHUNK)
-
-    while True:
-        data = stream.read(1024)
-        socket.send(data)
-        time.sleep(0.01)
+    try:
+        while True:
+            data = stream.read(1024)
+            socket.send(data)
+    except KeyboardInterrupt:
+        print("Stopping...")
+    finally:
+        stream.stop_stream()
+        stream.close()
+        audio.terminate()
 
 if __name__ == "__main__":
     # send_text()

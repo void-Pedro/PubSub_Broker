@@ -14,11 +14,4 @@ stream = p.open(format=p.get_format_from_width(2),
                 output=True,
                 frames_per_buffer=CHUNK)
 
-print('* recording')
-for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-    stream.write(stream.read(CHUNK))
-print('* done')
-
-stream.close()
-p.terminate()
-
+print(p)
