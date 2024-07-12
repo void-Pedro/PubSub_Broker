@@ -13,6 +13,7 @@ def subscriber_texto():
         print(f"Received text message: {message}")
         
 def subscriber_audio():
+    socket.setsockopt_string(zmq.SUBSCRIBE, "audio")
     audio = pyaudio.PyAudio()
     stream = audio.open(format=pyaudio.paInt16, channels=1, rate=44100, output=True, frames_per_buffer=1024)
 
@@ -21,5 +22,5 @@ def subscriber_audio():
         stream.write(data)
 
 if __name__ == "__main__":
-    subscriber_texto()
-    # subscriber_audio()
+    # subscriber_texto()
+    subscriber_audio()
