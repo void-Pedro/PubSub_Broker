@@ -1,6 +1,7 @@
 import zmq
 import pyaudio
 import sys
+import numpy as np
 
 CHUNK = 1024
 RATE = 44100
@@ -17,19 +18,18 @@ def subscriber_texto():
         print(f"Received text message: {message}")
         
 def subscriber_audio():
-    socket.setsockopt_string(zmq.SUBSCRIBE, "audio")
+    socket.setsockopt_string(zmq.SUBSCRIBE, "")
     audio = pyaudio.PyAudio()
     stream = audio.open(format=audio.get_format_from_width(2),
                 channels=1 if sys.platform == 'darwin' else 2,
                 rate=RATE,
-                input=False,
                 output=True,
                 frames_per_buffer=CHUNK)
     print("Receiving audio...")
-    
     try:
         while True:
             data = socket.recv()
+            #print(data)
             stream.write(data)
     except KeyboardInterrupt:
         print("Stopping...")

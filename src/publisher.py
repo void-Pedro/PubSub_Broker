@@ -22,8 +22,7 @@ def send_audio():
                 channels=1 if sys.platform == 'darwin' else 2,
                 rate=RATE,
                 input=True,
-                output=False,
-                frames_per_buffer=CHUNK)
+                frames_per_buffer=CHUNK)#
     try:
         while True:
             data = stream.read(1024)
