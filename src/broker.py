@@ -1,3 +1,13 @@
+# T1 - Sistemas Distribuídos: Videoconferência
+# Professor Doutor Fredy João Valente
+
+# Integrantes do Grupo: 
+# Bruno de Silveira Biaziolli - 760318
+# Pedro Henrique Borges - 804071
+# Rodrigo Takizawa Yamauchi - 800226
+# Vinicius Marques Rodrigues - 790717
+# 15/07/2024
+
 import zmq
 
 def broker():
