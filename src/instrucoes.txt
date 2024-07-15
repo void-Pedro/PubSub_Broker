@@ -1,0 +1,7 @@
+Como executar o código:
+
+- Abrir 3 terminais: um para o Broker, um para o Publisher e um para o Subscriber;
+
+- Editar no código de publisher.py e subscriber.py a opção que deseja escolher (texto/áudio/vídeo);
+
+- Rodar os códigos em terminais separados.
