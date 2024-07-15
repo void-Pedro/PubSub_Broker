@@ -6,7 +6,7 @@
 # Pedro Henrique Borges - 804071
 # Rodrigo Takizawa Yamauchi - 800226
 # Vinicius Marques Rodrigues - 790717
-# 15/07/2024
+# 15/07/2024.
 
 import zmq
 
